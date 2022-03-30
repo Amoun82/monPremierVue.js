@@ -1,0 +1,40 @@
+.nav-bar{
+    height: 40px;
+    background-color: aqua;
+}
+
+.product-image{
+    height: min-content;
+    width: min-content;
+    border: 1px solid black;
+}
+
+.product-info{
+    height: max-content;
+    width: max-content;
+    border: 1px dashed red;
+}
+
+.bordure{
+    border: 1px solid green;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+
+#app{
+    display: flex;
+}
+
+#carte{
+    display: flex;
+    flex-direction: row;
+}
+
+.desactiverBouton{
+    background-color: #d8d8d8;
+}
+
+.BaliseRuptureDeStock{
+    text-decoration: line-through
+}

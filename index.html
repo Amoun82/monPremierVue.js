@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="nav-bar"></div>
+
+    <div id="app">
+        <div class="product-image">
+            <img v-bind:src="image" alt="image de fleur et d'herbe">
+        </div>
+        <div class="product-info">
+            <h1>{{"voici le produit : "+ product + " " + marque }}</h1>
+            <h2>j'adore {{product}}</h2>
+            <h3>{{ article }} </h3>
+        
+            <span v-if="aVendre">En vente !</span>
+            
+            <p v-if="stock > 10">en stock</p>
+            <p v-else-if="stock <= 10 && stock > 0">attention le produit vas etre en rupture de stock</p>
+            <p :class="[ !aVendre ? classAActiver : '']" v-else>plus en stock</p>
+        
+            <a target="_blank" :href="image">voici le liens de la photo</a>
+
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+                <li v-for="taille in tailles">{{ "taille : " + taille }}</li>
+            </ul>
+
+            <div v-for="(variant, index) in variants" :key="variant.variantId">
+                <p class="bordure" :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(index)">{{ variant.variantColor }}</p>
+            </div>
+            <div id="carte">
+                <button v-on:click="ajouterCarte" :disabled="!aVendre" :class="{ desactiverBouton: !aVendre }">Ajouter carte</button>
+                <div class="carte">
+                    <p>carte ({{ carte }})</p>
+                </div>
+                <button v-on:click="retirerCarte">retirer Carte</button>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
